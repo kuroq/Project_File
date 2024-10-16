@@ -25,9 +25,9 @@ app.add_middleware(
 
 
 # 데이터베이스 접속 URL 설정
-DATABASE_URL1 = "mysql://admin:Seigakushakorea0308(!@localhost/boardDB1_ksr6"
-DATABASE_URL2 = "mysql://admin:Seigakushakorea0308(!@localhost/boardDB2_ksr6"
-DATABASE_URL3 = "mysql://admin:Seigakushakorea0308(!@localhost/boardDB3_ksr6"
+DATABASE_URL1 = "mysql://セキュリティのために削除しました。/boardDB1_ksr6"
+DATABASE_URL2 = "mysql://セキュリティのために削除しました。/boardDB2_ksr6"
+DATABASE_URL3 = "mysql://セキュリティのために削除しました。/boardDB3_ksr6"
 
 # 데이터베이스 연결 생성
 database1 = Database(DATABASE_URL1)
