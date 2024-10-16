@@ -1,0 +1,99 @@
+/* 메인 화면 css */
+
+body{
+    background: linear-gradient(to bottom, #000033, #1c1c3c, #4b0082, #000000);
+    /* 위에서부터 아래로 배경 그라데이션 */
+    height: 100vh;
+    /* 배경의 높이가 브라우저 창의 전체 높이와 같아지도록 한다 */
+    margin: 0;
+    /* 배경 주위에 여백이 없도록 한다 */
+    overflow: hidden;
+    /* 요소의 콘텐츠가 요소의 크기를 초과할 때, 초과된 부분을 숨긴다..
+    스크롤바가 나타나지 않고, 보이지 않는 콘텐츠는 클리핑 */
+    /* 클리핑 = 요소의 특정 부분을 숨기는 기술 */
+    position: relative;
+    /* 배경의 위치를 상대적으로 설정 */
+
+    /* background-color: #030b1a; */
+    h1{
+        color:silver;
+        /* 글씨 색 */
+        display: flex;
+        /*요소를 flexbox 컨테이너로 만듦*/
+        align-items: center;
+        /*컨테이너 내 자식 요소들을 수직으로 가운데로 정렬*/
+        justify-content: center;
+        /*컨테이너 내 자식요소들을 수평으로 가운데 정렬*/
+        text-align: center;
+        /*텍스트를 수평으로 가운데 정렬*/
+    }
+}
+
+/* 버튼 */
+
+/* 부모 div 스타일(가운데 정렬을 위해서) */
+.tableA, .tableB, .tableC {
+    display: flex;
+    /*요소를 flexbox 컨테이너로 만듦*/
+    justify-content: center;  
+    /* 수평 중앙 정렬 */
+    align-items: center;
+    /* 수직 중앙 정렬 */
+    height: 10vh;
+    /* 부모 div의 높이를 화면 전체 높이로 설정 */
+}
+
+/* 버튼 스타일 */
+.button1, .button2, .button3, .button4, .button5, .button6, 
+.button7, .button8, .button9, .button10, .button11 {
+    display: inline-block;
+    /* 블록 요소처럼 너비와 높이를 가지면서 인라인 요소처럼 나란히 배치 */
+    font-size: 15px;
+    /* 버튼 글씨 크기 */
+    background-color: dimgray;
+    /* 버튼 색 설정 */
+    color: whitesmoke;
+    /* 버튼 글씨 색 */
+    border: none;
+    /* 버튼 테두리 없애기~ */
+    border-radius: 20px;
+    /* 버튼 테두리 둥글게둥글게~ */
+    padding: 10px 20px;
+    /* 위아래 10px, 좌우 20px 여백 설정 */
+    text-align: center;
+    /* 글씨를 중앙으로 설정 */
+    transition: background-color 0.3s; 
+    /* 부드러운 전환 효과 추가 */
+    margin: 5px; 
+    /* 버튼 간 간격 추가 */
+}
+
+/* 금색 배경에 검은 글씨색 */
+.button6 {
+    background-color: gold;
+    color: rgb(0, 0, 0);
+}
+
+/* 버튼에 커서 올라갈 때 색 변경 */
+.button1:hover, .button2:hover, .button3:hover, .button4:hover, .button5:hover,
+.button7:hover, .button8:hover, .button9:hover, .button10:hover, .button11:hover {
+    background-color: #ada264;
+}
+
+.button6:hover {
+    background-color: silver;
+}
+
+/* 버튼에 포커스 이동 시 하얀 테두리 */
+.button1:focus, .button2:focus, .button3:focus, .button4:focus, .button5:focus,
+.button6:focus, .button7:focus, .button8:focus, .button9:focus, .button10:focus, .button11:focus {
+    box-shadow: 0 0 0 1px rgb(49, 80, 100);
+}
+
+/* 클릭하고 클릭 해제할 때까지 테두리 색 변경 */
+.button1:active, .button2:active, .button3:active, .button4:active, .button5:active,
+.button6:active, .button7:active, .button8:active, .button9:active, .button10:active, .button11:active{
+    background-color: silver;
+}
+
+

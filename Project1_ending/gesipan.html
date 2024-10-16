@@ -1,0 +1,148 @@
+<!--게시판 html 주석도 길고 자세히 만들기-->
+<!DOCTYPE html>
+<html>
+<div class="All">
+    <head>
+        <meta charset="UTF-8">
+        <!-- 타이틀 -->
+        <title>ksr 관리자 게시판</title>
+        
+        <!-- css파일 연결 -->
+        <link rel="stylesheet" href="gesipan.css">
+        
+    </head>
+    <body>
+        <!-- 별 애니메이션 추가 -->
+        <div class="stars"></div>
+    
+        <!-- 페이지 제목 -->
+        <div class="main_title">
+            <h1>~ksr 게시판~</h1>
+        </div>
+
+        <!-- value 값 입력 칸 정한 칼럼 값으로 바꾸기 -->
+        <!-- DB 요청 받음 -> api -> value 값을 가져오고, 입력할때는 포스트맨 -> python (api) -> DB -->
+        <div class="in1">
+        <input class="input0" type="text" placeholder="purpose ex.A1,B1..." id="input1">
+		<input class="input0" type="text" placeholder="message" id="input2">
+        <!-- 숫자를 입력하는 칼럼 이므로 number 타입 설정 -->
+		<input class="input0" type="number" placeholder="mean 의미" id="input3">
+		<input class="input0" type="number" placeholder="meanAddPhrase 의+구" id="input4">
+		<input class="input0" type="number" placeholder="meanAddMor 의+형" id="input5">
+		<input class="input0" type="number" placeholder="meanAddAll 의+구+형" id="input6">
+        <!-- running Time = 메세지를 내보내기로 정한 시간 or 특정 기간을 표시하는 칼럼
+        text 와 datetime-local 사이에서 고민하였으나 전자로 설정함 -->
+		<input class="input0" type="text" placeholder="running Time" id="input7">
+        <input class="input0" type="text" placeholder="yesValue 긍정?" id="input8">
+        <input class="input0" type="text" placeholder="noValue 부정?" id="input9">
+        </div>
+
+        <!-- 버튼 두개 -->
+        <div class="in2">
+        <!-- 뒤의 onclick 코드는 나중에 자바스크립트를 추가할 때 사용하기 위해 미리 적어놓음 -->
+        <input class="inbutton" type='button' id="add" value='꾸욱~' onclick='addData()'>
+        <!-- <input class="inbutton" type='button' id="add" value='꾸욱~' onclick='input00()'> -->
+        <!-- 입력버튼을 누르면 자바스크립트로 입력 함수를 부름-> 백엔드로 post 요청을 보내서 처리 
+         -> 백엔드는 응답을 프론트엔드로 반환-> 프론트 엔드는 응답을 처리 하는 방식..? -->
+        <input class="button2" type='button' id="refresh" value='새로고침' onclick='location.reload()'>
+        <!-- <input class="button2" type='button' id="add"refresh/ value='새로고침' onclick='input01()'> -->
+        <!-- 페이지를 다시 로드하는데 백엔드와의 별도의 통신 없이 브라우저가 페이지를 다시 요청하는 방식..? -->
+        </div><br><br>
+
+        <!--  개인 테이블 -->
+        <table class="table0">
+        <!-- <div class="div0"> -->
+            <tr class="data01">
+                <!-- 첫 번째 줄 13칸 병합-->
+                <td colspan="13">개인 데이터 조회</td>
+            </tr>
+            <tr class="data02">
+                <!-- 두 번째 줄 13칼럼 -->
+                <td>Message ID</td>
+                <td>Purpose</td>
+                <td>Message</td>
+                <td>Mean</td>
+                <td>MeanAddPhrase</td>
+                <td>MeanAddMor</td>
+                <td>MeanAddAll</td>
+                <td>Running Time</td>
+                <td>Send Date</td>
+                <td>Receive Date</td>
+                <td>Yes Value</td>
+                <td>No Value</td>
+                <td>Yes or No</td>
+            </tr>
+
+            <!-- 데이터를 삽입할 공간 -->
+            <tbody id="personalData"></tbody>
+            
+            <!-- 빈 줄 추가 &nbsp; = 공백 문자 -->
+            <!-- <tr class="data03">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td><input class="sendbutton" type='button' id="send" value='메세지 보내기' onclick='input03()'></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr> -->
+        <!-- </div> -->
+        </table><br>
+
+        <!-- 2팀 데이터 조회 -->
+        <table class="table2">
+        <!-- <div class="div2"> -->
+            <tr class="data21">
+                <!-- 첫 번째 줄 2칸 병합 -->
+                <td colspan="2">2팀 데이터 조회</td>
+            </tr>
+            <tr class="data22">
+                <!-- 두 번째 줄 2칼럼 -->
+                <td class="data2-1">Message ID</td>
+                <td class="data2-2">Message</td>
+            </tr>
+
+            <!-- 데이터를 삽입할 공간 -->
+            <tbody id="team2Data"></tbody>
+
+            <!-- 빈 줄 추가 &nbsp; = 공백 문자 -->
+            <!-- <tr class="data03">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr> -->
+        <!-- </div> -->
+        </table><br>
+
+        <!-- 전체 데이터 조회 -->
+        <table class="table23">
+        <!-- <div class="div23"> -->
+            <tr class="data231">
+                <!-- 첫 번째 줄 2칸 병합 -->
+                <td colspan="2">전체 데이터 조회</td>
+            </tr>
+            <tr class="data232">
+                <!-- 두 번째 줄 2칼럼 -->
+                <td class="data3-1">Message ID</td>
+                <td class="data3-2">Message</td>
+            </tr>
+
+            <!-- 데이터를 삽입할 공간 -->
+            <tbody id="allData"></tbody>
+
+            <!-- 빈 줄 추가 &nbsp; = 공백 문자 -->
+            <!-- <tr class="data03">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr> -->
+        <!-- </div> -->
+        </table><br>
+        <script src="gesipan.js"></script>
+    </body>
+</div>     
+</html>

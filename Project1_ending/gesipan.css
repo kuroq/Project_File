@@ -1,0 +1,391 @@
+/* 게시판 css */
+/* 입력창 & 버튼 */
+body{
+    background: linear-gradient(to bottom, #000033, #1c1c3c, #4b0082, #000000);
+    /* 위에서 부터 아래로 배경 그라데이션 */
+    height: 100vh;
+    /* 배경의 높이가 브라우저 창의 전체 높이와 같아지도록 한다 */
+    margin: 0;
+    /* 배경 주위에 여백이 없도록 한다 */
+    /* overflow: hidden; */
+    /* 요소의 콘텐츠가 요소의 크기를 초과할 때, 초과된 부분을 숨긴다~
+    스크롤바가 나타나지 않고, 보이지 않는 콘텐츠는 클리핑 */
+    /* 클리핑 = 요소의 특정 부분을 숨기는 기술-(조사파일) */
+    position: relative;
+    /* 배경의 위치를 상대적으로 설정-(조사파일) */
+
+    /* background-color: #030d20; */
+    h1{
+    color: rgb(255, 255, 182);
+    /* 게시판 이름 색 지정 */
+    }
+    
+}
+
+/* 애니메이션을 통해 하늘을 떠다니는 효과를 구현 */
+.stars {
+    width: 1px;
+    height: 1px;
+    /* 별의 크기를 1px x 1px로 설정 */
+    background: transparent;
+    /* 별의 배경을 투명하게 만듦 */
+    box-shadow: 
+        50px 100px #ffffff, 80px 50px #ffffff, 100px 150px #ffffff, 130px 70px #ffffff,
+        180px 200px #ffffff, 220px 120px #ffffff, 250px 180px #ffffff, 280px 50px #ffffff,
+        320px 250px #ffffff, 360px 150px #ffffff, 400px 220px #ffffff, 430px 80px #ffffff,
+        470px 200px #ffffff, 500px 90px #ffffff ;
+    /* 여러개의 별 값을 쉼표로 구분하여 설정, 각 별의 위치와 색을 정의 */
+    animation: animStar 200s linear infinite; 
+    /* 애니메이션 시간을 200초로 설정 */
+    /* animStar라는 애니메이션을 사용하고, 200초 동안 선형적으로 (linear) 무한 반복 (infinite)  */
+    /* 선형적 = 애니메이션의 진행 속도가 일정하다~ */
+    position: absolute;
+    /* 별을 절대 위치로 설정 */
+    /* 문서의 일반적인 흐름에서 벗어나게 함 */
+}
+
+@keyframes animStar {
+/* CSS 애니메이션을 정의하는 데 사용. 
+애니메이션의 중간 상태를 지정하고, 어떤 속성이 어떻게 변할지를 설정함 */
+    from { transform: translateY(0px); }
+    /* 애니메이션의 시작 상태 */
+    /* 초기에 Y축 위치가 0px */
+    to { transform: translateY(-2000px); }
+    /* 애니메이션의 끝 상태 */
+    /* 별이 Y축 방향으로 -2000px 이동함 = 별은 위쪽으로 2000px 만큼 이동 */
+}
+/* @keyframes = 애니메이션의 각 단계에서 속성의 값을 지정. 
+이는 백분율(%)로 지정되거나 from과 to 키워드로 시작과 끝을 지정할 수 있다~ */
+
+/* value 값 입력 칸 가운데로 수평 설정 */
+.in1{
+    text-align: center;
+    /*블록 요소의 내부 텍스트와 인라인 자식 요소들을 수평으로 가운데 정렬*/
+}
+
+/* 버튼 */
+/* 부모 div 스타일(가운데 정렬을 위해서) */
+.in2 {
+    display: flex;
+    /*요소를 flexbox 컨테이너로 만듦*/
+    justify-content: center;
+    /* 수평 중앙 정렬 */
+    align-items: center;
+    /* 수직 중앙 정렬 */
+    height: 10vh; 
+    /* 부모 div의 높이를 화면 전체 높이로 설정 */
+}
+
+/* 버튼 스타일 */
+.button2, .inbutton {
+    display: inline-block;
+    /* 블록 요소처럼 너비와 높이를 가지면서 인라인 요소처럼 나란히 배치 */
+    font-size: 10px;
+    /* 버튼 글씨 크기 */
+    background-color: gray;
+    /* 버튼 색 */
+    color: whitesmoke;
+    /* 버튼 글씨 색 */
+    border: none;
+    /* 버튼 테두리 없애기 */
+    border-radius: 20px;
+    /* 버튼 둥글게~ */
+    padding: 10px 20px;
+    /* 위아래 10px, 좌우 20px 여백 설정 */
+    text-align: center;
+    /* 글자를 가운데 정렬 */
+    transition: background-color 0.3s; 
+    /* 부드러운 전환 효과 추가 */
+    margin: 5px; 
+    /* 버튼 간 간격 추가 */
+}
+
+/* 버튼에 커서 올라갈 때 색 변경 */
+.button2:hover, .inbutton:hover {
+    background-color: #2d2b1e;
+}
+
+.sendbutton:hover {
+    background-color: #94820b;
+}
+
+/* 버튼에 포커스 이동 시 테두리 */
+.button2:focus, .inbutton:focus, .sendbutton:focus {
+    box-shadow: 0 0 0 1px rgb(49, 80, 100);
+}
+
+/* 버튼 클릭하고 해제할 때 까지 */
+.button2:active, .inbutton:active, .sendbutton:active {
+    background-color: silver;
+}
+
+/* 게시판 이름 */
+.main_title{
+    display: flex;
+    /* flexbox 컨테이너는 자식 요소들을 유연하게 배치하고 정렬할 수 있는 특별한 컨테이너 */
+    /* 자식 요소들이 flex 컨테이너 내에서 flex 아이템이 된다 */
+    align-items: center;
+    /* 컨테이너의 높이 내에서 자식 요소들이 수직으로 중앙에 위치 */
+    justify-content: center;
+    /* 컨테이너의 넓이 내에서 자식 요소들이 수평으로 중앙에 위치 */
+    text-align: center;
+    /* 텍스트를 수평으로 중앙에 정렬 */
+}
+
+/* 테이블 1,2,3 */
+
+/* 테이블 div */
+.div0, .div2, .div23 {
+    border-width: 3px;
+    /* 테이블 보더 두께 */
+    border-color: rgb(186, 186, 82);
+    /* 보더 색 설정 */
+    border-style: dashed;
+    /* 보더 스타일 긴 점선 */
+    margin-bottom: 20px; 
+    /* 각 테이블 사이에 여백 추가 */
+}
+
+table {
+    margin: 0 auto; 
+    /* 테이블을 가운데 정렬 */
+    border-collapse: collapse; 
+    /* 테두리를 겹치게 */
+    width: 90%; 
+    /* 테이블 너비 조정 */
+    text-align: center; 
+    /* 중앙 정렬 */
+}
+
+.table0, .table2, .table23 {
+    border: 2px solid rgb(157, 157, 223); 
+    /* td와 th 테두리 색*/
+    padding: 10px;
+    /* 위 아래 좌우 10px 여백 */
+    text-align: center; 
+    /* 중앙 정렬 */
+}
+
+/* 테이블 셀 스타일 우선적용 */
+th, td {
+    border: 1px dotted white; 
+    /* 테두리 설정 */
+    padding: 5px;
+    /* 위 아래 좌우 5px 여백 */
+    text-align: center; 
+    /* 글씨 중앙 정렬 */
+    color: silver;  /* 데이터 셀의 글씨 색을 은회색으로 설정 */
+}
+
+/* 테이블 목록 셀 스타일 */
+.data02, .data22, .data232 {
+    padding: 5px;
+    /* 위 아래 좌우 5px 여백 */
+    text-align: center;
+    /* 글씨 중앙 정렬 */
+    color: silver;  /* 데이터 셀의 글씨 색을 은회색으로 설정 */
+}
+
+/* 빈 줄 스타일 */
+.data03 td {
+    border: 1px dotted yellow; 
+    /* 빈 줄의 테두리 설정 */
+}
+
+
+/* 메세지 보내기 버튼의 스타일 */
+
+.sendbutton {
+    display: inline-block;
+    /* 블록 요소처럼 너비와 높이를 가지면서 인라인 요소처럼 나란히 배치 */
+    font-size: 10px;
+    /* 버튼 글씨 크기 */
+    background-color: rgba(165, 11, 170, 0.589);
+    /* 버튼 색 */
+    color: rgb(239, 247, 197);
+    /* 버튼 글씨 색 */
+    border: none;
+    /* 버튼 테두리 없애기 */
+    border-radius: 20px;
+    /* 버튼 둥글게~ */
+    padding: 10px 12px;
+    /* 위아래 10px, 좌우 20px 여백 설정 */
+    text-align: center;
+    /* 글자를 가운데 정렬 */
+    transition: background-color 0.3s; 
+    /* 부드러운 전환 효과 추가 */
+    margin: 5px; 
+    /* 버튼 간 간격 추가 */
+    white-space: pre-wrap; /* 줄바꿈을 허용 */
+    line-height: 1.2; /* 줄 간격 조정 */
+    word-break: break-word; /* 단어가 길 경우 줄바꿈 */
+}
+
+
+/* 개인 조회 테이블 */
+.data01 {
+    /* color: #FFD700; */
+    color: #D8BFD8; /* 연보라색 */
+}
+
+.data02 {
+    /* color: silver; */
+    color: rgb(99, 99, 255); /* 청색 */
+    font-size: 12px;
+    /* 글씨 크기 */
+}
+
+/* 2팀 조회 테이블 */
+.data21 {
+    /* color: rgb(202, 237, 75); */
+    color: #D8BFD8; /* 연보라색 */
+}
+
+.data22 {
+    /* color: silver; */
+    color: rgb(99, 99, 255); /* 청색 */
+    font-size: 12px;
+    /* 글씨 크기 */
+}
+
+/* 전체 조회 테이블 */
+.data231 {
+    /* color: rgb(133, 199, 249); */
+    color: #D8BFD8; /* 연보라색 */
+}
+
+.table23 .data232 {
+    /* color: silver; */
+    color: rgb(99, 99, 255); /* 청색 */
+    font-size: 12px;
+    /* 글씨 크기 */
+}
+
+/* 전체, 팀 조회 테이블 messageId 칼럼 크기조정 */
+
+.data2-1, .data3-1 {
+    width: 10%;
+}
+
+/* boardDB1_ksr6의 firstmessages의 각 칼럼의 너비를 설정하는 CSS 클래스 */
+.column-messageId {
+    width: 5%;
+}
+
+.column-purpose {
+    width: 3%;
+}
+
+.column-message {
+    width: 20%;
+}
+
+.column-mean {
+    width: 7%;
+}
+
+.column-meanAddPhrase {
+    width: 7%;
+}
+
+.column-meanAddMor {
+    width: 7%;
+}
+
+.column-meanAddAll {
+    width: 7%;
+}
+
+.column-runningTime {
+    width: 15%;
+}
+
+.column-sendDate {
+    width: 10%;
+}
+
+.column-receiveDate {
+    width: 12%;
+}
+
+.column-yesValue {
+    width: 5%;
+}
+
+.column-noValue {
+    width: 5%;
+}
+
+.column-confirmStatus {
+    width: 5%;
+}
+
+
+/* boardDB1_ksr6의 answermessages의 각 칼럼의 너비를 설정하는 CSS 클래스  */
+
+.column-messageId-2 {
+    width: 5%;
+    color: #FFD700;
+    /* 글씨 색 */
+}
+
+.column-purpose-2 {
+    width: 3%;
+    color: #FFD700;
+}
+
+.column-message-2 {
+    width: 20%;
+    color: #FFD700;
+}
+
+.column-mean-2 {
+    width: 7%;
+    color: #FFD700;
+}
+
+.column-meanAddPhrase-2 {
+    width: 7%;
+    color: #FFD700;
+}
+
+.column-meanAddMor-2 {
+    width: 7%;
+    color: #FFD700;
+}
+
+.column-meanAddAll-2 {
+    width: 7%;
+    color: #FFD700;
+}
+
+.column-runningTime-2 {
+    width: 15%;
+    color: #FFD700;
+}
+
+.column-sendDate-2 {
+    width: 10%;
+    color: #FFD700;
+}
+
+.column-receiveDate-2 {
+    width: 12%;
+    color: #FFD700;
+}
+
+.column-yesValue-2 {
+    width: 5%;
+    color: #FFD700;
+}
+
+.column-noValue-2 {
+    width: 5%;
+    color: #FFD700;
+}
+
+.column-confirmStatus-2 {
+    width: 5%;
+    color: #FFD700;
+}
+
